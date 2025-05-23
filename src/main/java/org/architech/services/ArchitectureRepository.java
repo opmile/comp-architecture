@@ -26,5 +26,10 @@ public class ArchitectureRepository {
         }
     }
 
+    public void findAll() {
+        List<Architecture> architectures = load();
+        architectures.forEach(System.out::println);
+    }
+
 }
 

@@ -1,19 +1,26 @@
 [
   {
-    "processorType":"ARM",
-    "busWidthBits":32,
-    "busFrequencyHz":800.0,
-    "deviceCount":2,
-    "cyclesPerTransfer":3,
-    "lossRate":0.0
+    "processorType": "ARM",
+    "busWidthBits": 32,
+    "busFrequencyHz": 800.0,
+    "deviceCount": 2,
+    "cyclesPerTransfer": 3,
+    "lossRate": 0.0
   },
-
   {
-    "processorType":"x86",
-    "busWidthBits":64,
-    "busFrequencyHz":3.2,
-    "deviceCount":4,
-    "cyclesPerTransfer":2,
-    "lossRate":0.0
+    "processorType": "x86",
+    "busWidthBits": 64,
+    "busFrequencyHz": 3.2,
+    "deviceCount": 4,
+    "cyclesPerTransfer": 2,
+    "lossRate": 0.0
+  },
+  {
+    "processorType": "x86",
+    "busWidthBits": 64,
+    "busFrequencyHz": 3.2,
+    "deviceCount": 1,
+    "cyclesPerTransfer": 3,
+    "lossRate": 0.0
   }
 ]

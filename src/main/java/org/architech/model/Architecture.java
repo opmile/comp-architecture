@@ -1,5 +1,9 @@
 package org.architech.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
 public class Architecture {
     private String processorType;
     private int busWidthBits;
@@ -65,5 +69,11 @@ public class Architecture {
 
     public void setLossRate(double lossRate) {
         this.lossRate = lossRate;
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 }
