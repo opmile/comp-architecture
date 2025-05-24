@@ -11,7 +11,7 @@ public class ArchitectureController {
     private static final Scanner scanner = new Scanner(System.in);
     private static final ArchitectureRepository repository = new ArchitectureRepository();
 
-    public void run() throws InputMismatchException {
+    public void run() {
 
         int op = 1;
         do {
@@ -22,7 +22,7 @@ public class ArchitectureController {
                 System.out.println("0 - Exit");
                 System.out.println("=====================================");
 
-                op = scanner.nextInt();
+                op = Integer.parseInt(scanner.nextLine());
 
                 switch (op) {
                     case 1 -> register();
@@ -36,27 +36,31 @@ public class ArchitectureController {
     }
 
     public static void register() {
-        Architecture a = new Architecture();
+        try {
+            Architecture a = new Architecture();
 
-        System.out.print("Processor Type (ARM, x86): ");
-        a.setProcessorType(scanner.nextLine());
+            System.out.print("Processor Type (ARM, x86): ");
+            a.setProcessorType(scanner.nextLine());
 
-        System.out.print("Buswidth (bits): ");
-        a.setBusWidthBits(scanner.nextInt());
+            System.out.print("Buswidth (bits): ");
+            a.setBusWidthBits(scanner.nextInt());
 
-        System.out.print("Busfrequency (MHz): ");
-        a.setBusFrequencyHz(scanner.nextDouble());
+            System.out.print("Busfrequency (MHz): ");
+            a.setBusFrequencyHz(scanner.nextDouble());
 
-        System.out.print("Number of connected devices: ");
-        a.setDeviceCount(scanner.nextInt());
+            System.out.print("Number of connected devices: ");
+            a.setDeviceCount(scanner.nextInt());
 
-        System.out.print("Cycles per Transfer: ");
-        a.setCyclesPerTransfer(scanner.nextInt());
+            System.out.print("Cycles per Transfer: ");
+            a.setCyclesPerTransfer(scanner.nextInt());
 
-        CalculatorUtils.displayResults(a);
-        List<Architecture> list = repository.load();
-        list.add(a);
-        repository.save(list);
+            CalculatorUtils.displayResults(a);
+            List<Architecture> list = repository.load();
+            list.add(a);
+            repository.save(list);
+        } catch (InputMismatchException e) {
+            System.out.println("Input format not expected");
+        }
     }
 
     public static void list() {
