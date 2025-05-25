@@ -6,14 +6,14 @@ Este projeto foi desenvolvido como parte do curso de Arquitetura de Computadores
 
 ## Objetivos
 
-* Implementar uma base de cálculos que fornece informações do hardware do computador.
-* Persistir dados em um arquivo application/json.
-* Trabalhamos em reflexões com a manipulação de tipos genéricos (TypeToken do Gson).
+* Implementar uma base de cálculos que fornece informações do hardware do computador, provenientes de dados inseridos via linha de comando no terminal (classe Scanner)
+* Persistir dados em um arquivo application/json (tipo de arquivo que comprovou mais escalabilidade). Dados gravados são acessados a cada execução do programa.
+* Trabalhar com reflexões para capturar tipos genéricos em tempo de execução (uso com TypeToken da lib Gson).
 * Simular o funcionamento do processador com um conjunto de instruções de teste.
 
 ## Estrutura do Projeto
 
-O projeto está organizado da seguinte forma:
+A arquitetura de pastas escolhida se baseou no conceito de MVP para arquiteturas monolíticas simples.
 
 ```
 comp-architecture/
@@ -29,6 +29,7 @@ comp-architecture/
 │               └── utils/
 │                   ├── JsonUtils.v
 │                   ├── CalculatorUtils.v
+│            ── Main.v
 │
 │
 ├── data.json
@@ -36,17 +37,28 @@ comp-architecture/
 └── README.md
 ```
 
+**Correspondência de campos:**
 * `Architecture.v`: Implementação da entidade do domínio (Arquitetura) com seus respectivos campos de tratamento.
 * `ArchitectureRepository.v`: Implementação de acesso de dados (salvamento e carregamento do arquivo .json).
 * `ArchitectureController.v`: Implementação da unidade de controle que roda na classe Main.
 * `JsonUtils.v`: Integração da lib Gson para serialização e deserialização do elemento json.
 * `Calculator.v`: Implementação de métodos de cálculo.
+* `Main.v`: Implementação do método main para rodar a aplicação.
 * `data.json`: Arquivo contendo dados de entrada para os testes.
 * `pom.xml`: Arquivo de configuração do Maven para gerenciamento do projeto.
 
 ## Implementação
 
 ### Valores de Entrada Escolhidos no Teste
+Os valor teóricos a seguir demonstram a estrutura do arquivo application/json, juntamente com os campos escolhidos para representar a entidade do domínio `Architecture`
+
+**Correspondência de campos:**
+`processorType`: Tipo de processador (ARM, x86).
+`busWidthBits`: Largura do barramento (em bits).
+`busFrequencyHz`: Frequência do barramento (em Hz)
+`deviceCount`: Números de dispositivos conectados
+`lossRate`: Taxa teórica de perda 
+
 ```
 [
   {
