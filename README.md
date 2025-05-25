@@ -53,11 +53,11 @@ comp-architecture/
 Os valor teóricos a seguir demonstram a estrutura do arquivo application/json, juntamente com os campos escolhidos para representar a entidade do domínio `Architecture`
 
 **Correspondência de campos:**
-`processorType`: Tipo de processador (ARM, x86).
-`busWidthBits`: Largura do barramento (em bits).
-`busFrequencyHz`: Frequência do barramento (em Hz)
-`deviceCount`: Números de dispositivos conectados
-`lossRate`: Taxa teórica de perda 
+* `processorType`: Tipo de processador (ARM, x86).
+* `busWidthBits`: Largura do barramento (em bits).
+* `busFrequencyHz`: Frequência do barramento (em Hz)
+* `deviceCount`: Números de dispositivos conectados
+* `lossRate`: Taxa teórica de perda 
 
 ```
 [
